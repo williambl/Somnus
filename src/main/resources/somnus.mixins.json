@@ -6,7 +6,6 @@
   "mixins": [
     "MixinBedBlock",
     "MixinPlayerEntity",
-    "MixinServerPlayerEntity",
     "MixinServerWorld"
   ],
   "client": [

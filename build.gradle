@@ -20,6 +20,7 @@ dependencies {
 
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation fabricApi.module("fabric-api-base", project.fabric_version)
+    modImplementation fabricApi.module("fabric-entity-events-v1", project.fabric_version)
 
     include fabricApi.module("fabric-api-base", project.fabric_version)
 }

@@ -44,6 +44,7 @@ public final class PlayerSleepEvents {
    *
    * <p>See: {@link PlayerSleepEvents#canSleepNow(PlayerEntity, BlockPos)}</p>
    */
+  @Deprecated
   public static final Event<CanSleepNow> CAN_SLEEP_NOW =
       EventFactory.createArrayBacked(CanSleepNow.class, (listeners) -> (player, pos) -> {
 
@@ -68,6 +69,7 @@ public final class PlayerSleepEvents {
    * @param pos    The sleeping position of the player or the location of the sleep attempt
    * @return True to allow sleeping, false to prevent sleep attempts or interrupt current sleeping
    */
+  @Deprecated
   public static boolean canSleepNow(PlayerEntity player, BlockPos pos) {
     TriState state = PlayerSleepEvents.CAN_SLEEP_NOW.invoker().canSleepNow(player, pos);
     return state == TriState.DEFAULT ? !player.world.isDay() : state.get();
@@ -79,6 +81,7 @@ public final class PlayerSleepEvents {
    * <p>Called once when attempting to sleep in {@link ServerPlayerEntity#trySleep(BlockPos)}.
    * This occurs before any other sleeping logic or checks are called.</p>
    */
+  @Deprecated
   public static final Event<TrySleep> TRY_SLEEP =
       EventFactory.createArrayBacked(TrySleep.class, (listeners) -> (player, pos) -> {
 
