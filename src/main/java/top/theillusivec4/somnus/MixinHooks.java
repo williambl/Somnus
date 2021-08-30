@@ -18,26 +18,11 @@
 package top.theillusivec4.somnus;
 
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.util.math.BlockPos;
 import top.theillusivec4.somnus.api.PlayerSleepEvents;
 import top.theillusivec4.somnus.api.WorldSleepEvents;
 
 public class MixinHooks {
-
-  public static boolean canSleepNow(PlayerEntity player) {
-    return canSleepNow(player, player.getSleepingPosition().orElse(player.getBlockPos()));
-  }
-
-  public static boolean canSleepNow(PlayerEntity player, BlockPos pos) {
-    return PlayerSleepEvents.canSleepNow(player, pos);
-  }
-
-  public static PlayerEntity.SleepFailureReason trySleep(ServerPlayerEntity player, BlockPos pos) {
-    return PlayerSleepEvents.TRY_SLEEP.invoker().trySleep(player, pos);
-  }
-
   public static long getWorldWakeTime(ServerWorld world, long newTime, long minTime) {
     return WorldSleepEvents.WORLD_WAKE_TIME.invoker().getWorldWakeTime(world, newTime, minTime);
   }
